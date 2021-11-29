@@ -1,5 +1,5 @@
 {
-  "name": "pati-movie",
+  "name": "themovie",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://dbqls2757h.github.io/pati-movie/",
+  "homepage": "https://dbqls2757h.github.io/themovie/",
   "eslintConfig": {
     "extends": [
       "react-app",
