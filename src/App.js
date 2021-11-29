@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { HelmetProvider } from "react-helmet-async";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { GlobalStyled } from "./style/GlobalStyled";
+
+import { Header } from "./components/Header";
+import { Home } from "./components/Home/Home";
+import { PageNotFound } from "./components/PageNotFound";
+import { Detail } from "./components/Detail/Detail";
+import { Search } from "./components/Search/Search";
+import { router } from "./router";
+import { Footer } from "./components/Footer";
+import { ScrollTop } from "./components/ScrollTop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HelmetProvider>
+      <Router>
+        <GlobalStyled />
+
+        <ScrollTop />
+
+        <Header />
+
+        <Switch>
+          <Route path={router.home} exact>
+            <Home />
+          </Route>
+
+          <Route path={router.detail}>
+            <Detail />
+          </Route>
+
+          <Route path={router.search}>
+            <Search />
+          </Route>
+
+          <Route>
+            <PageNotFound />
+          </Route>
+        </Switch>
+
+        <Footer />
+      </Router>
+    </HelmetProvider>
   );
 }
 
